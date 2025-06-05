@@ -1,2 +1,4 @@
 # projeto_academico
-Projetos criado para fins acadêmicos.
+Estudante de Análise e Desenvolvimento de Sistemas
+Manaus - AM |Projetos acadêmicos e pessoais em desenvolvimento
+Contato: contato.joaolps@gmail.com
