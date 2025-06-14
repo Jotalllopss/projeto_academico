@@ -23,5 +23,5 @@ Sempre aprendendo e fazendo projetos legais.
 ---
 
 ## Projetos
-- (Outros projetos aqui)
+
 
