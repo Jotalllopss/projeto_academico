@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfólio de {{ dados.nome }}</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap');
+
+    :root {
+      --bg-color: #000;
+      --primary-color: #4ADE80;
+      --secondary-color: #16A34A;
+      --text-color: #E2E8F0;
+      --border-color: rgba(74, 222, 128, 0.2);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      margin: 0;
+      padding: 0;
+      background-image: radial-gradient(circle at 15% 50%, rgba(74, 222, 128, 0.1), transparent 30%),
+                        radial-gradient(circle at 85% 30%, rgba(22, 163, 74, 0.1), transparent 40%);
+    }
+
+    .navbar {
+      padding: 20px 8vw;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      position: sticky;
+      top: 0;
+      background-color: #000;
+      z-index: 10;
+    }
+
+    .navbar a {
+      color: var(--text-color);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .navbar a:hover {
+      color: var(--primary-color);
+    }
+
+    .container {
+      padding: 20px 8vw;
+      display: flex;
+      flex-direction: column;
+      gap: 100px;
+    }
+
+    .intro-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 50px;
+      flex-wrap: wrap-reverse;
+    }
+
+    .intro-text-block {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: left;
+    }
+
+    .intro-text {
+      color: white;
+      font-size: 1.1em;
+      font-weight: 400;
+      margin-bottom: 5px;
+    }
+
+    .intro-name {
+      font-size: 2.8em;
+      font-weight: 900;
+      margin: 0;
+      background: linear-gradient(45deg, var(--primary-color), #A7F3D0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .intro-role {
+      font-size: 1.2em;
+      font-weight: 400;
+      color: white;
+      margin-top: 8px;
+    }
+
+    .blob {
+      width: 280px;
+      height: 280px;
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      border-radius: 42% 58% 70% 30% / 46% 42% 58% 54%;
+      animation: morph 8s ease-in-out infinite;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    @keyframes morph {
+      0%, 100% { border-radius: 42% 58% 70% 30% / 46% 42% 58% 54%; }
+      50% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+    }
+
+    .profile-picture {
+      width: 90%;
+      height: 90%;
+      object-fit: cover;
+      border-radius: inherit;
+    }
+
+    .section-title {
+      display: inline-block;
+      background-color: rgba(74, 222, 128, 0.1);
+      color: #FFF;
+      border: 1px solid var(--border-color);
+      padding: 15px 30px;
+      border-radius: 12px;
+      font-size: 2em;
+      font-weight: 900;
+      margin-bottom: 30px;
+    }
+
+    .section {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .about-text {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+      font-size: 1.1em;
+      line-height: 1.8;
+    }
+
+    .skills-carousel {
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+      padding: 10px 0;
+      -webkit-mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent);
+      mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent);
+    }
+
+    .skills-carousel:hover .skills-list { animation-play-state: paused; }
+
+    .skills-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      gap: 60px;
+      animation: scroll 15s linear infinite;
+    }
+
+    @keyframes scroll {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    .skills-list li {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      transition: transform 0.3s ease;
+      padding: 15px;
+      border-radius: 12px;
+      min-width: 100px;
+      background-color: rgba(74, 222, 128, 0.1);
+      border: 1px solid var(--border-color);
+    }
+
+    .skills-list li:hover { transform: scale(1.1); }
+
+    .skills-list img {
+      height: 50px;
+      width: 50px;
+      object-fit: contain;
+      margin-bottom: 15px;
+    }
+
+    .skills-list span {
+      color: var(--text-color);
+      font-weight: 500;
+      font-size: 0.9em;
+    }
+
+    .contact-details {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .contact-details a {
+      color: var(--text-color);
+      text-decoration: none;
+      font-size: 1.8em;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .contact-details a:hover {
+      color: var(--primary-color);
+      transform: translateY(-3px);
+    }
+
+    @media (max-width: 900px) {
+      .intro-section {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .blob {
+        width: 250px;
+        height: 250px;
+      }
+
+      .skills-list {
+        animation-duration: 25s;
+      }
+
+      .intro-text-block {
+        align-items: center;
+      }
+    }
+
+    /* Logo do Flask em branco */
+    .flask-invert {
+      filter: invert(1) brightness(2);
+    }
+  </style>
+</head>
+<body>
+
+  <div id="topo"></div>
+
+  <nav class="navbar">
+    <a href="#topo">Início</a>
+    <a href="#sobre">Sobre Mim</a>
+    <a href="#habilidades">Habilidades</a>
+    <a href="#contato">Contato</a>
+  </nav>
+
+  <div class="container">
+
+    <div class="intro-section">
+      <div class="intro-text-block">
+        <p class="intro-text">Seja bem vindo</p>
+        <h1 class="intro-name">{{ dados.nome }}</h1>
+      </div>
+      <div class="blob">
+        <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo de {{ dados.nome }}" class="profile-picture" onerror="this.style.display='none'" />
+      </div>
+    </div>
+
+    <section id="sobre" class="section">
+      <div class="section-title">Sobre Mim</div>
+      <p class="about-text">
+        Sou estudante de Análise e Desenvolvimento de Sistemas, com foco em desenvolvimento web.
+        Estudo Python com Flask, além de HTML, CSS e C, buscando sempre aprimorar minha lógica e habilidades técnicas.
+        Procuro oportunidades para aplicar meus conhecimentos na prática e crescer como desenvolvedor de forma responsável e comprometido.
+      </p>
+    </section>
+
+    <section id="habilidades" class="section">
+      <h3 class="section-title"><i class="fas fa-code"></i> Habilidades</h3>
+      <div class="skills-carousel">
+        <ul class="skills-list">
+          {% for skill in dados.habilidades %}
+            <li>
+              <img src="{{ skill.logo }}"
+                   alt="Logo {{ skill.nome }}"
+                   class="{% if skill.nome == 'Flask' %}flask-invert{% endif %}">
+              <span>{{ skill.nome }}</span>
+            </li>
+          {% endfor %}
+          {% for skill in dados.habilidades %}
+            <li aria-hidden="true">
+              <img src="{{ skill.logo }}"
+                   alt="Logo {{ skill.nome }}"
+                   class="{% if skill.nome == 'Flask' %}flask-invert{% endif %}">
+              <span>{{ skill.nome }}</span>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </section>
+
+    <section id="contato" class="section">
+      <h3 class="section-title"><i class="fas fa-envelope"></i> Contato</h3>
+      <div class="contact-details">
+        <a href="mailto:{{ dados.contato.email }}" title="E-mail"><i class="fas fa-envelope"></i></a>
+        <a href="tel:{{ dados.contato.telefone }}" title="Telefone"><i class="fas fa-phone-alt"></i></a>
+        <a href="{{ dados.redes_sociais.linkedin }}" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="{{ dados.redes_sociais.github }}" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+        <a href="{{ dados.redes_sociais.instagram }}" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+      </div>
+    </section>
+
+  </div>
+
+</body>
+</html>
