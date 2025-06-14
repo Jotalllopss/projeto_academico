@@ -23,7 +23,5 @@ Sempre aprendendo e fazendo projetos legais.
 ---
 
 ## Projetos
-
-- [Portfólio Pessoal](https://github.com/joao-lopes/portfolio)  
 - (Outros projetos aqui)
 
